@@ -6,16 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+
 public class Profil extends Objet{
+    private static final String NAME="PROFIL";
+    @Column
+    private Double longueur;
 
     @Column
-    private Long longueur;
+    private Double prixMetreLineaire;
 
-    @Column
-    private Long prixMetreLineaire;
+    @OneToMany(mappedBy = "profil")
+    private List<Couleur> couleurs;
+    public Profil() {
+        super();
+        setType(NAME);
+    }
 }

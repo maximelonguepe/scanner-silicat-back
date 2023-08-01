@@ -1,7 +1,6 @@
 package com.main.scannersilicatback.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,21 +9,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Objet {
+public class Couleur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column
-    private String referenceProduit;
+    private String nomCouleur;
 
     @Column
-    private String type;
+    private Double metreLineaire;
 
-    @Column
-    private Double quantiteOuMl;
-
-    @Column
-    private Double prixUnitaire;
+    @ManyToOne
+    @JoinColumn(name = "profil_id")
+    private Profil profil;
 }

@@ -8,6 +8,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Consommable extends Objet{
+    private static final String NAME="CONSOMMABLE";
     @Column
-    private Long prixUnite;
+    private Double prixUnite;
+
+    public Consommable() {
+        super();
+        setType(NAME);
+    }
 }
