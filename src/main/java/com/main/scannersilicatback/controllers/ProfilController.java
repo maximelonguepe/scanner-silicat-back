@@ -21,12 +21,19 @@ import java.util.Optional;
 public class ProfilController {
     @Autowired
     private ProfilRepository profilRepository;
+
     @GetMapping
-    public List<Profil> findAllProfils(){
+    public List<Profil> findAllProfils() {
         return profilRepository.findAll();
     }
+
     @PostMapping
-    public Profil saveProfil(@RequestBody Profil profil){
+    public Profil saveProfil(@RequestBody Profil profil) {
+        return profilRepository.save(profil);
+    }
+
+    @PutMapping
+    public Profil modifyProfil(@RequestBody Profil profil) {
         return profilRepository.save(profil);
     }
 

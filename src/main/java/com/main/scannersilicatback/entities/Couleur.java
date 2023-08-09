@@ -1,5 +1,6 @@
 package com.main.scannersilicatback.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class Couleur {
     private Double metreLineaire;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "profil_id")
     private Profil profil;
 }

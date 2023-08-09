@@ -31,4 +31,9 @@ public class ConsommableController {
     public Consommable save(@RequestBody Consommable consommable){
         return consommableRepository.save(consommable);
     }
+
+    @PutMapping
+    public Consommable modifyConsommable(@RequestBody Consommable consommable){
+        return consommableRepository.save(consommable);
+    }
 }
