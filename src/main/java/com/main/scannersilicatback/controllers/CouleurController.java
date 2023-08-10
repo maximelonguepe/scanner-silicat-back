@@ -2,6 +2,7 @@ package com.main.scannersilicatback.controllers;
 
 import com.main.scannersilicatback.entities.Couleur;
 import com.main.scannersilicatback.repositories.CouleurRepository;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,5 +22,9 @@ public class CouleurController {
     @PostMapping
     public Couleur save(@RequestBody Couleur couleur){
         return couleurRepository.save(couleur);
+    }
+    @DeleteMapping
+    public void delete(@PathParam("id") Integer id){
+        couleurRepository.deleteById(id);
     }
 }
