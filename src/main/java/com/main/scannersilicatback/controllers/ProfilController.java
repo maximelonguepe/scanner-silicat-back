@@ -34,6 +34,10 @@ public class ProfilController {
 
     @PutMapping
     public Profil modifyProfil(@RequestBody Profil profil) {
+        profil.getCouleurs().forEach(couleur -> {
+            couleur.setProfil(profil);
+                }
+        );
         return profilRepository.save(profil);
     }
 

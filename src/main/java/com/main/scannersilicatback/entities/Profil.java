@@ -21,7 +21,7 @@ public class Profil extends Objet{
     @Column
     private Double prixMetreLineaire;
 
-    @OneToMany(mappedBy = "profil")
+    @OneToMany(mappedBy = "profil",cascade = CascadeType.ALL)
     private List<Couleur> couleurs;
     public Profil() {
         super();
