@@ -1,16 +1,14 @@
 package com.main.scannersilicatback.controllers;
 
-import com.main.scannersilicatback.entities.Objet;
+import com.main.scannersilicatback.entities.Couleur;
 import com.main.scannersilicatback.entities.Profil;
 import com.main.scannersilicatback.repositories.ProfilRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +34,7 @@ public class ProfilController {
                     couleur.setProfil(profil);
                 }
         );
+        profil.setQuantiteOuMl(profil.getCouleurs().stream().mapToDouble(Couleur::getMetreLineaire).reduce(0, Double::sum));
         return profilRepository.save(profil);
     }
 
@@ -45,6 +44,7 @@ public class ProfilController {
             couleur.setProfil(profil);
                 }
         );
+        profil.setQuantiteOuMl(profil.getCouleurs().stream().mapToDouble(Couleur::getMetreLineaire).reduce(0, Double::sum));
         return profilRepository.save(profil);
     }
 
