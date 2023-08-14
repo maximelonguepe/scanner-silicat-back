@@ -29,6 +29,13 @@ public class ProfilController {
 
     @PostMapping
     public Profil saveProfil(@RequestBody Profil profil) {
+        if(profil.getId()==0){
+            profil.setId(null);
+        }
+        profil.getCouleurs().forEach(couleur -> {
+                    couleur.setProfil(profil);
+                }
+        );
         return profilRepository.save(profil);
     }
 
