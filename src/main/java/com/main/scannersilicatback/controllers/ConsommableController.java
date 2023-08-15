@@ -29,6 +29,9 @@ public class ConsommableController {
     }
     @PostMapping
     public Consommable save(@RequestBody Consommable consommable){
+        if(consommable.getId()==0){
+            consommable.setId(null);
+        }
         return consommableRepository.save(consommable);
     }
 
