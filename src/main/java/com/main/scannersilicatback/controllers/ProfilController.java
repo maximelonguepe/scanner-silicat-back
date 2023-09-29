@@ -31,7 +31,7 @@ public class ProfilController {
             profil.setId(null);
         }
         profil.getCouleurs().forEach(couleur -> {
-                    couleur.setProfil(profil);
+                    couleur.setObjet(profil);
                 }
         );
         profil.setQuantiteOuMl(profil.getCouleurs().stream().mapToDouble(Couleur::getMetreLineaire).reduce(0, Double::sum));
@@ -41,7 +41,7 @@ public class ProfilController {
     @PutMapping
     public Profil modifyProfil(@RequestBody Profil profil) {
         profil.getCouleurs().forEach(couleur -> {
-            couleur.setProfil(profil);
+            couleur.setObjet(profil);
                 }
         );
         profil.setQuantiteOuMl(profil.getCouleurs().stream().mapToDouble(Couleur::getMetreLineaire).reduce(0, Double::sum));

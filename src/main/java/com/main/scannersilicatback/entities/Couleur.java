@@ -24,5 +24,5 @@ public class Couleur {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "profil_id")
-    private Profil profil;
+    private Objet objet;
 }

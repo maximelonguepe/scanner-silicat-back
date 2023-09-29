@@ -52,6 +52,13 @@ public class ObjetController {
                 return objetRepository.findByTypeAndId("CONSOMMABLE", idInt);
             }
         }
+        else if (type.equals("ACCESSOIRE")) {
+            if (idInt == 0) {
+                return objetRepository.findByType("ACCESSOIRE");
+            } else {
+                return objetRepository.findByTypeAndId("ACCESSOIRE", idInt);
+            }
+        }
         else if(idInt!=0){
             List<Objet> objets = new ArrayList<>();
             Optional<Objet> objetOptional = objetRepository.findById(idInt);
