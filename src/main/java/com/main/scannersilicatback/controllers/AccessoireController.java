@@ -26,6 +26,7 @@ public class AccessoireController {
 
     @PostMapping
     public Accessoire save(@RequestBody Accessoire accessoire) {
+
         if (accessoire.getId() == 0) {
             accessoire.setId(null);
         }
@@ -42,11 +43,11 @@ public class AccessoireController {
             couleur.setObjet(accessoire);
         });
         accessoire.setQuantiteOuMl(accessoire.getCouleurs().stream().mapToDouble(Couleur::getMetreLineaire).reduce(0, Double::sum));
-        return accessoire;
+        return accessoireRepository.save(accessoire);
     }
 
     @GetMapping("/get")
-    public ResponseEntity<Accessoire> getAccessoireById(@PathParam("id") Integer id){
+    public ResponseEntity<Accessoire> getAccessoireById(@PathParam("id") Integer id) {
         Optional<Accessoire> accessoireOptional = accessoireRepository.findById(id);
         return accessoireOptional.map(accessoire -> new ResponseEntity<>(accessoire, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
