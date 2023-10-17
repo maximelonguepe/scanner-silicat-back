@@ -26,6 +26,7 @@ public class ObjetController {
     @Autowired
     private ConsommableRepository consommableRepository;
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping
     public List<Objet> findAll() {
         return objetRepository.findAll();
