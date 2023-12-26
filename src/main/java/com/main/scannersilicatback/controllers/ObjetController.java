@@ -3,7 +3,6 @@ package com.main.scannersilicatback.controllers;
 import com.main.scannersilicatback.entities.Objet;
 import com.main.scannersilicatback.repositories.ConsommableRepository;
 import com.main.scannersilicatback.repositories.ObjetRepository;
-import com.main.scannersilicatback.repositories.ProfilRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class ObjetController {
     @Autowired
     private ConsommableRepository consommableRepository;
 
-    @CrossOrigin(origins = "http://localhost:8080")
+
     @GetMapping
     public List<Objet> findAll() {
         return objetRepository.findAll();
