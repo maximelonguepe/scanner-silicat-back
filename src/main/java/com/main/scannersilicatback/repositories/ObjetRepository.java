@@ -9,6 +9,5 @@ import java.util.Optional;
 public interface ObjetRepository extends JpaRepository<Objet,Integer> {
 
     List<Objet> findByType(String type);
-
     List<Objet> findByTypeAndId(String type,Integer id);
 }
