@@ -12,19 +12,21 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+public class Profil extends Objet {
+    private static final String NAME = "PROFIL";
 
-public class Profil extends Objet{
-    private static final String NAME="PROFIL";
     @Column
     private Double longueur;
 
     @Column
     private Double prixMetreLineaire;
 
-    @OneToMany(mappedBy = "objet",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "objet", cascade = CascadeType.ALL)
     private List<Couleur> couleurs;
+
     public Profil() {
         super();
+
         setType(NAME);
     }
 }

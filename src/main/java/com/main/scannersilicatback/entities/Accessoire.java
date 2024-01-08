@@ -11,12 +11,13 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Accessoire extends Objet{
+public class Accessoire extends Objet {
 
-    private static final String NAME="ACCESSOIRE";
+    private static final String NAME = "ACCESSOIRE";
 
-    @OneToMany(mappedBy = "objet",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "objet", cascade = CascadeType.ALL)
     private List<Couleur> couleurs;
+
     public Accessoire() {
         super();
         setType(NAME);
