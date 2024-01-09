@@ -7,6 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -17,7 +21,8 @@ import lombok.Setter;
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Profil.class, name = "PROFIL"),
         @JsonSubTypes.Type(value = Consommable.class, name = "CONSOMMABLE"),
-        @JsonSubTypes.Type(value = PieceDetachee.class, name = "PIECE_DETACHEE")
+        @JsonSubTypes.Type(value = PieceDetachee.class, name = "PIECE_DETACHEE"),
+        @JsonSubTypes.Type(value = PieceDetachee.class, name = "ACCESSOIRE")
 })
 public class Objet {
     @Id
@@ -27,12 +32,16 @@ public class Objet {
     @Column
     private String referenceProduit;
 
+    @Enumerated(EnumType.STRING)
     @Column
-    private String type;
+    private ObjetType type;
 
     @Column
     private Double quantiteOuMl;
 
     @Column
     private Double prixUnitaire;
+
+    @CreationTimestamp
+    private LocalDate createdAt;
 }

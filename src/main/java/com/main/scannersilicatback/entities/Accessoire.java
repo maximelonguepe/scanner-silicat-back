@@ -20,6 +20,5 @@ public class Accessoire extends Objet {
 
     public Accessoire() {
         super();
-        setType(NAME);
     }
 }

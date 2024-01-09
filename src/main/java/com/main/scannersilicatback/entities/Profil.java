@@ -27,6 +27,5 @@ public class Profil extends Objet {
     public Profil() {
         super();
 
-        setType(NAME);
     }
 }

@@ -1,6 +1,7 @@
 package com.main.scannersilicatback.controllers;
 
 import com.main.scannersilicatback.entities.Objet;
+import com.main.scannersilicatback.entities.ObjetType;
 import com.main.scannersilicatback.repositories.ConsommableRepository;
 import com.main.scannersilicatback.repositories.ObjetRepository;
 import jakarta.websocket.server.PathParam;
@@ -40,23 +41,23 @@ public class ObjetController {
         }
         if (type.equals("PROFIL")) {
             if (idInt == 0) {
-                return objetRepository.findByType("PROFIL");
+                return objetRepository.findByType(ObjetType.PROFIL);
             } else {
-                return objetRepository.findByTypeAndId("PROFIL", idInt);
+                return objetRepository.findByTypeAndId(ObjetType.PROFIL, idInt);
             }
         }
         else if (type.equals("CONSOMMABLE")) {
             if (idInt == 0) {
-                return objetRepository.findByType("CONSOMMABLE");
+                return objetRepository.findByType(ObjetType.CONSOMMABLE);
             } else {
-                return objetRepository.findByTypeAndId("CONSOMMABLE", idInt);
+                return objetRepository.findByTypeAndId(ObjetType.CONSOMMABLE, idInt);
             }
         }
         else if (type.equals("ACCESSOIRE")) {
             if (idInt == 0) {
-                return objetRepository.findByType("ACCESSOIRE");
+                return objetRepository.findByType(ObjetType.ACCESSOIRE);
             } else {
-                return objetRepository.findByTypeAndId("ACCESSOIRE", idInt);
+                return objetRepository.findByTypeAndId(ObjetType.ACCESSOIRE, idInt);
             }
         }
         else if(idInt!=0){

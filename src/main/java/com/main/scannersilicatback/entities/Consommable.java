@@ -12,6 +12,5 @@ public class Consommable extends Objet{
 
     public Consommable() {
         super();
-        setType(NAME);
     }
 }
